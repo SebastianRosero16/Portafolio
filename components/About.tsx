@@ -115,12 +115,8 @@ export default function About() {
           ))}
         </div>
 
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">{t("about.skills")}</h2>
-        </div>
-
         {/* Technical skills card */}
-        <div className="bg-blue-50 rounded-2xl border border-blue-100 p-6" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
+        <div className="bg-white rounded-2xl border border-gray-100 p-6" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
           <div className="flex items-center gap-3 mb-5">
             <div className="bg-blue-600 rounded-xl w-10 h-10 flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +138,7 @@ export default function About() {
         </div>
 
         {/* Soft skills card */}
-        <div className="bg-purple-50 rounded-2xl border border-purple-100 p-6" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
+        <div className="bg-white rounded-2xl border border-gray-100 p-6" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
           <div className="flex items-center gap-3 mb-5">
             <div className="bg-purple-600 rounded-xl w-10 h-10 flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
