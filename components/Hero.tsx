@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0d2060] to-[#1a3a8f] flex flex-col items-center justify-start pt-24 pb-12 px-6"
+      className="bg-gradient-to-b from-[#0a1628] via-[#0d2060] to-[#1a3a8f] flex flex-col items-center justify-center pt-28 pb-12 px-6"
     >
       <div className="max-w-5xl w-full flex flex-col gap-5">
 
