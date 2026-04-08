@@ -17,11 +17,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10" style={{ backgroundColor: "#0a1628" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo / brand */}
-          <a href="#inicio" className="text-blue-600 font-bold text-xl">
+          <a href="#inicio" className="text-cyan-400 font-bold text-xl">
             SM
           </a>
 
@@ -31,7 +31,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors text-center"
+                className="text-white hover:text-cyan-400 text-sm font-medium transition-colors text-center"
               >
                 {link.label}
               </a>
@@ -40,7 +40,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger button */}
           <button
-            className="md:hidden text-gray-700 focus:outline-none"
+            className="md:hidden text-white focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Open menu"
           >
@@ -57,13 +57,13 @@ export default function Navbar() {
 
       {/* Mobile dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 flex flex-col gap-3">
+        <div className="md:hidden border-t border-white/10 px-4 py-3 flex flex-col gap-3" style={{ backgroundColor: "#0a1628" }}>
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors"
+              className="text-white hover:text-cyan-400 text-sm font-medium transition-colors"
             >
               {link.label}
             </a>
