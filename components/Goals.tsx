@@ -59,29 +59,25 @@ export default function Goals() {
         </div>
 
         {/* Goals grid */}
-        <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto w-full">
           {goals.map((goal) => (
             <div
               key={goal.title}
-              className="bg-blue-50 rounded-2xl p-5 flex flex-col gap-3 shadow-md overflow-hidden"
-              style={{ width: "100%", height: "0", paddingBottom: "100%" , position: "relative" }}
+              className="bg-blue-50 rounded-2xl p-5 flex flex-col gap-3 shadow-md"
             >
-              <div className="absolute inset-0 p-5 flex flex-col gap-3">
               {/* Top: icon + title + badge */}
               <div className="flex items-start gap-3">
                 <div className="bg-blue-500 rounded-xl w-12 h-12 flex items-center justify-center shrink-0">
                   {goal.icon}
                 </div>
-                <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex flex-col gap-1.5 flex-1 min-w-0">
                   <h3 className="text-gray-900 font-bold text-base leading-snug">{goal.title}</h3>
                   <span className="text-blue-500 bg-blue-100 text-xs px-2.5 py-0.5 rounded-full w-fit">
                     {goal.timeframe}
                   </span>
-                  {/* Description aligned with title */}
-                  <p className="text-gray-600 text-sm leading-relaxed mt-2">{goal.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mt-1">{goal.description}</p>
                 </div>
               </div>
-            </div>
             </div>
           ))}
         </div>
