@@ -65,14 +65,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {contactInfo.map((item) => (
             <div key={item.label} className="bg-white rounded-2xl p-6 flex flex-col items-center gap-3 border border-gray-100" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
-              <div className={`bg-gradient-to-br ${item.gradient} w-16 h-16 rounded-2xl flex items-center justify-center`}>
+              <div className={`bg-linear-to-br ${item.gradient} w-16 h-16 rounded-2xl flex items-center justify-center`}>
                 {item.icon}
               </div>
               <p className="text-gray-900 font-bold text-sm text-center">{item.label}</p>
               <p className="text-gray-500 text-sm text-center">{item.value}</p>
             </div>
           ))}
-        </div>
         </div>
 
         {/* Contact form card */}
