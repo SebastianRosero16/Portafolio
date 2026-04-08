@@ -57,7 +57,7 @@ export default function Hero() {
 
           {/* Right: profile photo + social links */}
           <div className="flex flex-col items-center gap-4 shrink-0">
-            <div className="w-64 sm:w-80 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-white/5 relative">
+            <div className="w-64 sm:w-80 rounded-2xl overflow-hidden bg-white/5 relative" style={{ border: "3px solid #38bdf8", boxShadow: "0 0 30px rgba(56,189,248,0.5), 0 20px 40px rgba(0,0,0,0.4)" }}>
               <div
                 className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{
