@@ -6,6 +6,7 @@ import { useApp } from "@/context/AppContext";
 const navKeys = [
   { key: "nav.home", href: "#inicio" },
   { key: "nav.about", href: "#sobre-mi" },
+  { key: "nav.education", href: "#educacion" },
   { key: "nav.experience", href: "#experiencia" },
   { key: "nav.projects", href: "#proyectos" },
   { key: "nav.sports", href: "#deportes" },

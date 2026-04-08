@@ -62,6 +62,7 @@ export default function Education() {
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">{t("education.title")}</h2>
+          <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
         </div>
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("education.academic")}</h3>
