@@ -5,45 +5,17 @@ import { useApp } from "@/context/AppContext";
 // Education and Certifications section
 
 const academicItems = [
-  {
-    iconType: "graduation",
-    bg: "bg-blue-500",
-    title: "Ingeniería de Software",
-    subtitle: "Universidad",
-    status: "En curso",
-    statusColor: "bg-blue-100 text-blue-600",
-  },
-  {
-    iconType: "book",
-    bg: "bg-purple-500",
-    title: "Tecnólogo SENA",
-    subtitle: "SENA",
-    status: "En curso",
-    statusColor: "bg-blue-100 text-blue-600",
-  },
-  {
-    iconType: "badge",
-    bg: "bg-green-500",
-    title: "Técnico en Soporte TI",
-    subtitle: "Certificación Técnica",
-    status: "Completado",
-    statusColor: "bg-green-100 text-green-600",
-  },
-  {
-    iconType: "language",
-    bg: "bg-pink-500",
-    title: "Certificado de Eficiencia en Inglés",
-    subtitle: "Certificación de Idiomas",
-    status: "Completado",
-    statusColor: "bg-green-100 text-green-600",
-  },
+  { iconType: "graduation", bg: "bg-blue-500", titleKey: "edu.software", subKey: "edu.software.sub", status: "ongoing", statusColor: "bg-blue-100 text-blue-600" },
+  { iconType: "book", bg: "bg-purple-500", titleKey: "edu.sena", subKey: "edu.sena.sub", status: "ongoing", statusColor: "bg-blue-100 text-blue-600" },
+  { iconType: "badge", bg: "bg-green-500", titleKey: "edu.support", subKey: "edu.support.sub", status: "completed", statusColor: "bg-green-100 text-green-600" },
+  { iconType: "language", bg: "bg-pink-500", titleKey: "edu.english", subKey: "edu.english.sub", status: "completed", statusColor: "bg-green-100 text-green-600" },
 ];
 
 const courseItems = [
-  { bg: "bg-orange-500", title: "DevOps con GitLab", subtitle: "Plataforma Online" },
-  { bg: "bg-yellow-500", title: "JavaScript Moderno", subtitle: "Plataforma Online" },
-  { bg: "bg-pink-500", title: "Inteligencia Artificial", subtitle: "Plataforma Online" },
-  { bg: "bg-cyan-500", title: "App Inventor", subtitle: "Plataforma Online" },
+  { bg: "bg-orange-500", titleKey: "edu.devops", subKey: "edu.online" },
+  { bg: "bg-yellow-500", titleKey: "edu.js", subKey: "edu.online" },
+  { bg: "bg-pink-500", titleKey: "edu.ai", subKey: "edu.online" },
+  { bg: "bg-cyan-500", titleKey: "edu.appinventor", subKey: "edu.online" },
 ];
 
 function AcademicIcon({ type }: { type: string }) {
@@ -95,16 +67,16 @@ export default function Education() {
           <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("education.academic")}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {academicItems.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
+              <div key={item.titleKey} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
                 <div className={`${item.bg} rounded-xl w-10 h-10 flex items-center justify-center`}>
                   <AcademicIcon type={item.iconType} />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">{item.title}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">{item.subtitle}</p>
+                  <p className="font-semibold text-gray-900 text-sm">{t(item.titleKey)}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">{t(item.subKey)}</p>
                 </div>
                 <span className={`text-xs font-medium px-3 py-1 rounded-full w-fit ${item.statusColor}`}>
-                  {item.status === "En curso" ? t("education.ongoing") : t("education.completed")}
+                  {item.status === "ongoing" ? t("education.ongoing") : t("education.completed")}
                 </span>
               </div>
             ))}
@@ -115,13 +87,13 @@ export default function Education() {
           <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("education.courses")}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {courseItems.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
+              <div key={item.titleKey} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
                 <div className={`${item.bg} rounded-xl w-10 h-10 flex items-center justify-center`}>
                   <CourseIcon />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">{item.title}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">{item.subtitle}</p>
+                  <p className="font-semibold text-gray-900 text-sm">{t(item.titleKey)}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">{t(item.subKey)}</p>
                 </div>
               </div>
             ))}

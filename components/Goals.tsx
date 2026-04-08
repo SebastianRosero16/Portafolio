@@ -4,48 +4,11 @@ import { useApp } from "@/context/AppContext";
 
 // Professional goals section
 
-const goals = [
-  {
-    title: "Crecer como Desarrollador Web",
-    timeframe: "Corto-Mediano Plazo",
-    description: "Convertirme en un desarrollador full-stack competente, dominando tanto frontend como backend",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Mejorar Nivel de Inglés",
-    timeframe: "Mediano Plazo",
-    description: "Alcanzar un nivel avanzado de inglés técnico para acceder a mejores oportunidades internacionales",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
-  },
-  {
-    title: "Trabajar en el Sector Tecnológico",
-    timeframe: "Mediano-Largo Plazo",
-    description: "Formar parte de una empresa tecnológica donde pueda aplicar y expandir mis conocimientos",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Contribuir a Proyectos Open Source",
-    timeframe: "Largo Plazo",
-    description: "Participar activamente en la comunidad de desarrolladores y contribuir a proyectos de código abierto",
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    ),
-  },
+const goalsData = [
+  { titleKey: "goal.1.title", timeframeKey: "goal.1.timeframe", descKey: "goal.1.desc", icon: (<svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>) },
+  { titleKey: "goal.2.title", timeframeKey: "goal.2.timeframe", descKey: "goal.2.desc", icon: (<svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>) },
+  { titleKey: "goal.3.title", timeframeKey: "goal.3.timeframe", descKey: "goal.3.desc", icon: (<svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>) },
+  { titleKey: "goal.4.title", timeframeKey: "goal.4.timeframe", descKey: "goal.4.desc", icon: (<svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>) },
 ];
 
 export default function Goals() {
@@ -61,22 +24,21 @@ export default function Goals() {
 
         {/* Goals grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto w-full">
-          {goals.map((goal) => (
+          {goalsData.map((goal) => (
             <div
-              key={goal.title}
+              key={goal.titleKey}
               className="bg-blue-50 rounded-2xl p-5 flex flex-col gap-3 shadow-md"
             >
-              {/* Top: icon + title + badge */}
               <div className="flex items-start gap-3">
                 <div className="bg-blue-500 rounded-xl w-12 h-12 flex items-center justify-center shrink-0">
                   {goal.icon}
                 </div>
                 <div className="flex flex-col gap-1.5 flex-1 min-w-0">
-                  <h3 className="text-gray-900 font-bold text-base leading-snug">{goal.title}</h3>
+                  <h3 className="text-gray-900 font-bold text-base leading-snug">{t(goal.titleKey)}</h3>
                   <span className="text-blue-500 bg-blue-100 text-xs px-2.5 py-0.5 rounded-full w-fit">
-                    {goal.timeframe}
+                    {t(goal.timeframeKey)}
                   </span>
-                  <p className="text-gray-600 text-sm leading-relaxed mt-1">{goal.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mt-1">{t(goal.descKey)}</p>
                 </div>
               </div>
             </div>

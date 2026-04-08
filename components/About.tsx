@@ -130,13 +130,12 @@ export default function About() {
             <h3 className="font-bold text-gray-900 text-base">{t("about.technical")}</h3>
           </div>
           <div className="flex flex-wrap gap-3">
-            {technicalSkills.map((skill) => (
-              <span
-                key={skill}
-                className="bg-white border border-gray-200 text-gray-900 text-sm px-4 py-2 rounded-xl"
-                style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.12)" }}
-              >
-                {skill}
+            {[
+              "about.skills.it", "JavaScript", "Python", "Git",
+              "about.skills.web", "about.skills.ai", "HTML/CSS", "VS Code",
+            ].map((skill) => (
+              <span key={skill} className="bg-white border border-gray-200 text-gray-900 text-sm px-4 py-2 rounded-xl" style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.12)" }}>
+                {skill.startsWith("about.") ? t(skill) : skill}
               </span>
             ))}
           </div>
@@ -153,17 +152,21 @@ export default function About() {
             <h3 className="font-bold text-gray-900 text-base">{t("about.soft")}</h3>
           </div>
           <div className="flex flex-col gap-4">
-            {softSkills.map((skill) => (
-              <div key={skill.name}>
+            {[
+              { key: "about.soft.communication", level: 90 },
+              { key: "about.soft.teamwork", level: 95 },
+              { key: "about.soft.responsibility", level: 95 },
+              { key: "about.soft.adaptability", level: 88 },
+              { key: "about.soft.problem", level: 85 },
+              { key: "about.soft.leadership", level: 80 },
+            ].map((skill) => (
+              <div key={skill.key}>
                 <div className="flex justify-between text-xs text-gray-700 mb-1">
-                  <span>{skill.name}</span>
+                  <span>{t(skill.key)}</span>
                   <span>{skill.level}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-1.5">
-                  <div
-                    className="bg-linear-to-r from-blue-500 to-purple-600 h-1.5 rounded-full"
-                    style={{ width: `${skill.level}%` }}
-                  />
+                  <div className="bg-linear-to-r from-blue-500 to-purple-600 h-1.5 rounded-full" style={{ width: `${skill.level}%` }} />
                 </div>
               </div>
             ))}

@@ -5,54 +5,12 @@ import { useApp } from "@/context/AppContext";
 // Projects section
 
 const projects = [
-  {
-    title: "AgroSmart - Plataforma Agrícola con IA",
-    description:
-      "Sistema completo de venta de productos e insumos agrícolas con IA integrada para comparar precios, recomendar productos económicos y asesorar a agricultores en el diagnóstico de problemas de cultivos.",
-    technologies: ["JavaScript", "IA", "API Integration", "Web Development"],
-    githubUrl: "https://github.com/SebastianRosero16/AgriGoSJ-Frontend",
-    gradient: "from-blue-600 to-blue-400",
-  },
-  {
-    title: "Plataforma Profesional - Estilo LinkedIn",
-    description:
-      "Red social profesional para conectar profesionales, compartir experiencias laborales y establecer contactos de negocios con sistema de perfiles y mensajería.",
-    technologies: ["JavaScript", "HTML", "CSS", "Database", "API"],
-    githubUrl: "https://github.com/SebastianRosero16/Red-Social.git",
-    gradient: "from-blue-500 to-cyan-400",
-  },
-  {
-    title: "Reproductor de Música MP3",
-    description:
-      "Aplicación de reproducción de música con controles intuitivos, playlist personalizada, y gestión completa de biblioteca musical.",
-    technologies: ["JavaScript", "HTML5 Audio", "CSS", "File Management"],
-    githubUrl: "https://github.com/SebastianRosero16/Reproductor-de-Musica.git",
-    gradient: "from-blue-600 to-blue-400",
-  },
-  {
-    title: "Alarma Mundial Multi-Zona",
-    description:
-      "Sistema de alarma con soporte para diferentes zonas horarias internacionales, permitiendo programar recordatorios en horarios de múltiples países.",
-    technologies: ["JavaScript", "Time API", "HTML", "CSS"],
-    githubUrl: "https://github.com/SebastianRosero16/Reloj-Alarma.git",
-    gradient: "from-blue-500 to-cyan-400",
-  },
-  {
-    title: "Diseño de Interfaces Intuitivas",
-    description:
-      "Colección de interfaces de usuario modernas y accesibles, enfocadas en experiencia del usuario y diseño responsivo.",
-    technologies: ["UI/UX", "CSS3", "HTML5", "Responsive Design"],
-    githubUrl: "https://github.com/SebastianRosero16/Dashboard.git",
-    gradient: "from-blue-600 to-blue-400",
-  },
-  {
-    title: "Soporte TI Dashboard",
-    description:
-      "Panel de control para gestión de tickets de soporte técnico con seguimiento en tiempo real y sistema de prioridades.",
-    technologies: ["Python", "JavaScript", "Web Development", "Database"],
-    githubUrl: "https://github.com/StevenInsuasti/TalleGit.git",
-    gradient: "from-blue-500 to-cyan-400",
-  },
+  { titleKey: "proj.agro.title", descKey: "proj.agro.desc", technologies: ["JavaScript", "IA", "API Integration", "Web Development"], githubUrl: "https://github.com/SebastianRosero16/AgriGoSJ-Frontend", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.linkedin.title", descKey: "proj.linkedin.desc", technologies: ["JavaScript", "HTML", "CSS", "Database", "API"], githubUrl: "https://github.com/SebastianRosero16/Red-Social.git", gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.mp3.title", descKey: "proj.mp3.desc", technologies: ["JavaScript", "HTML5 Audio", "CSS", "File Management"], githubUrl: "https://github.com/SebastianRosero16/Reproductor-de-Musica.git", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.alarm.title", descKey: "proj.alarm.desc", technologies: ["JavaScript", "Time API", "HTML", "CSS"], githubUrl: "https://github.com/SebastianRosero16/Reloj-Alarma.git", gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.ui.title", descKey: "proj.ui.desc", technologies: ["UI/UX", "CSS3", "HTML5", "Responsive Design"], githubUrl: "https://github.com/SebastianRosero16/Dashboard.git", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.dashboard.title", descKey: "proj.dashboard.desc", technologies: ["Python", "JavaScript", "Web Development", "Database"], githubUrl: "https://github.com/StevenInsuasti/TalleGit.git", gradient: "from-blue-500 to-cyan-400" },
 ];
 
 function CodeIcon() {
@@ -85,49 +43,24 @@ export default function Projects() {
         {/* Projects grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.map((project) => (
-            <div
-              key={project.title}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col"
-            >
-              {/* Card header with gradient */}
+            <div key={project.titleKey} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
               <div className={`bg-linear-to-br ${project.gradient} p-5 relative overflow-hidden`}>
-                {/* Decorative circles */}
                 <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-white/10" />
                 <div className="absolute -bottom-6 -right-2 w-16 h-16 rounded-full bg-white/10" />
-
-                {/* Code icon badge */}
-                <div className="bg-white/20 rounded-lg w-9 h-9 flex items-center justify-center mb-3">
-                  <CodeIcon />
-                </div>
-                <h3 className="text-white font-bold text-base leading-snug">{project.title}</h3>
+                <div className="bg-white/20 rounded-lg w-9 h-9 flex items-center justify-center mb-3"><CodeIcon /></div>
+                <h3 className="text-white font-bold text-base leading-snug">{t(project.titleKey)}</h3>
               </div>
-
-              {/* Card body */}
               <div className="p-5 flex flex-col gap-4 flex-1">
-                <p className="text-gray-600 text-sm leading-relaxed">{project.description}</p>
-
-                {/* Technologies */}
+                <p className="text-gray-600 text-sm leading-relaxed">{t(project.descKey)}</p>
                 <div>
                   <p className="text-gray-900 font-semibold text-xs mb-2">{t("projects.technologies")}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium"
-                      >
-                        {tech}
-                      </span>
+                      <span key={tech} className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium">{tech}</span>
                     ))}
                   </div>
                 </div>
-
-                {/* GitHub button */}
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors"
-                >
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors">
                   <GithubIcon />
                   {t("projects.code")}
                 </a>

@@ -4,34 +4,10 @@ import { useApp } from "@/context/AppContext";
 
 // Professional references section
 
-const references = [
-  {
-    name: "Frey Manchabajoy",
-    role: "Referencia Profesional",
-    quotes: [
-      "Sebastián tiene un talento excepcional para resolver problemas técnicos de manera rápida y eficiente.",
-      "Su conocimiento en desarrollo de software y soporte técnico es impresionante para alguien de su edad.",
-      "Siempre se mantiene actualizado con las últimas tecnologías y demuestra un gran compromiso con la calidad.",
-    ],
-  },
-  {
-    name: "Wilson Mauricio Rosero",
-    role: "Referencia Profesional",
-    quotes: [
-      "Excelente habilidad para diagnosticar y reparar computadores. Resuelve cualquier problema de hardware o software.",
-      "Su capacidad de explicar conceptos técnicos de manera sencilla a los clientes es destacable.",
-      "Muy profesional y confiable. Siempre cumple con los plazos establecidos en sus proyectos de desarrollo.",
-    ],
-  },
-  {
-    name: "Eddy Luci Obando",
-    role: "Referencia Profesional",
-    quotes: [
-      "Sebastián desarrolló una aplicación web para nuestro negocio que superó todas nuestras expectativas.",
-      "Además de sus habilidades técnicas, su capacidad de trabajo en equipo y comunicación son excepcionales.",
-      "Su atención al detalle y creatividad en el diseño de interfaces es sobresaliente.",
-    ],
-  },
+const referencesData = [
+  { name: "Frey Manchabajoy", quoteKeys: ["ref.frey.q1","ref.frey.q2","ref.frey.q3"] },
+  { name: "Wilson Mauricio Rosero", quoteKeys: ["ref.wilson.q1","ref.wilson.q2","ref.wilson.q3"] },
+  { name: "Eddy Luci Obando", quoteKeys: ["ref.eddy.q1","ref.eddy.q2","ref.eddy.q3"] },
 ];
 
 function StarIcon() {
@@ -55,7 +31,7 @@ export default function References() {
 
         {/* Reference cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto w-full">
-          {references.map((ref) => (
+          {referencesData.map((ref) => (
             <div
               key={ref.name}
               className="bg-white rounded-2xl p-4 flex flex-col gap-3 relative"
@@ -73,10 +49,10 @@ export default function References() {
 
               {/* Quotes */}
               <ul className="flex flex-col gap-3 flex-1">
-                {ref.quotes.map((quote, i) => (
-                  <li key={i} className="text-gray-600 text-sm italic leading-relaxed">
+                {ref.quoteKeys.map((key) => (
+                  <li key={key} className="text-gray-600 text-sm italic leading-relaxed">
                     <span className="text-blue-500 font-bold mr-1">•</span>
-                    &ldquo;{quote}&rdquo;
+                    &ldquo;{t(key)}&rdquo;
                   </li>
                 ))}
               </ul>
