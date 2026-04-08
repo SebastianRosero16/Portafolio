@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Footer navigation links
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -9,6 +11,7 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useApp();
   return (
     <footer style={{ background: "linear-gradient(to bottom, #0d1b3e, #1e3a7a 50%, #0d1b3e)" }} className="px-6 pt-12 pb-6">
       <div className="max-w-5xl mx-auto">
@@ -21,9 +24,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold" style={{ color: "#38bdf8" }}>
               Sebastián<br />Manchabajoy
             </h3>
-            <p className="text-blue-200 text-sm leading-relaxed">
-              Estudiante de Ingeniería de Software apasionado por la tecnología y el desarrollo web.
-            </p>
+            <p className="text-blue-200 text-sm leading-relaxed">{t("footer.desc")}</p>
             {/* Social icons */}
             <div className="flex gap-3">
               <a
@@ -59,7 +60,7 @@ export default function Footer() {
 
           {/* Col 2: Quick links */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-bold text-base">Enlaces Rápidos</h4>
+            <h4 className="text-white font-bold text-base">{t("footer.links")}</h4>
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -73,7 +74,7 @@ export default function Footer() {
 
           {/* Col 3: Contact info */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-bold text-base">Contacto</h4>
+            <h4 className="text-white font-bold text-base">{t("footer.contact")}</h4>
             <p className="text-blue-200 text-sm">Pasto, Nariño, Colombia</p>
             <p className="text-blue-200 text-sm">sebasorlando28@gmail.com</p>
             <p className="text-blue-200 text-sm">320 383 1186</p>
@@ -83,9 +84,7 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-white/10 pt-6">
-          <p className="text-blue-300 text-xs text-center">
-            © 2026 Sebastián Orlando Manchabajoy Rosero. Todos los derechos reservados.
-          </p>
+          <p className="text-blue-300 text-xs text-center">{t("footer.rights")}</p>
         </div>
 
       </div>

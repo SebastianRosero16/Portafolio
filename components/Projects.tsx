@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Projects section
 
 const projects = [
@@ -70,17 +72,14 @@ function GithubIcon() {
 }
 
 export default function Projects() {
+  const { t } = useApp();
   return (
     <section id="proyectos" className="bg-gray-50 py-16 px-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Proyectos</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("projects.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
-          <p className="mt-4 text-gray-500 text-sm">
-            Algunos de los proyectos en los que he trabajado durante mi formación
-          </p>
+          <p className="mt-4 text-gray-500 text-sm">{t("projects.subtitle")}</p>
         </div>
 
         {/* Projects grid */}
@@ -109,7 +108,7 @@ export default function Projects() {
 
                 {/* Technologies */}
                 <div>
-                  <p className="text-gray-900 font-semibold text-xs mb-2">Tecnologías:</p>
+                  <p className="text-gray-900 font-semibold text-xs mb-2">{t("projects.technologies")}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
@@ -130,7 +129,7 @@ export default function Projects() {
                   className="mt-auto flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-700 text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-colors"
                 >
                   <GithubIcon />
-                  Ver Código
+                  {t("projects.code")}
                 </a>
               </div>
             </div>

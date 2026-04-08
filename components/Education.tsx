@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Education and Certifications section
 
 const academicItems = [
@@ -82,17 +84,15 @@ function CourseIcon() {
 }
 
 export default function Education() {
+  const { t } = useApp();
   return (
     <section id="educacion" className="bg-gray-50 py-16 px-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
-
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Educación y Certificaciones</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("education.title")}</h2>
         </div>
-
-        {/* Academic formation */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Formación Académica</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("education.academic")}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {academicItems.map((item) => (
               <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
@@ -104,16 +104,15 @@ export default function Education() {
                   <p className="text-gray-400 text-xs mt-0.5">{item.subtitle}</p>
                 </div>
                 <span className={`text-xs font-medium px-3 py-1 rounded-full w-fit ${item.statusColor}`}>
-                  {item.status}
+                  {item.status === "En curso" ? t("education.ongoing") : t("education.completed")}
                 </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Courses */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Cursos y Certificaciones</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("education.courses")}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {courseItems.map((item) => (
               <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>

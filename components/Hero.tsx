@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { useApp } from "@/context/AppContext";
 
 export default function Hero() {
+  const { t } = useApp();
   return (
     <section
       id="inicio"
@@ -13,7 +15,7 @@ export default function Hero() {
         {/* Welcome badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 w-fit">
           <span className="text-lg">👋</span>
-          <span className="text-white text-sm font-medium">Bienvenido a mi portafolio</span>
+          <span className="text-white text-sm font-medium">{t("hero.welcome")}</span>
         </div>
 
         {/* Main row: text left, photo right */}
@@ -31,31 +33,24 @@ export default function Hero() {
             </div>
 
             <div>
-              <p className="text-white text-lg font-medium">Estudiante de Ingeniería de Software</p>
-              <p className="text-gray-300 text-sm mt-1">Soporte TI | Desarrollo Web</p>
+              <p className="text-white text-lg font-medium">{t("hero.role")}</p>
+              <p className="text-gray-300 text-sm mt-1">{t("hero.subrole")}</p>
             </div>
 
             <p className="text-gray-300 text-sm italic max-w-md">
-              &quot;Apasionado por la tecnología, el aprendizaje continuo y la solución de problemas.&quot;
+              &quot;{t("hero.quote")}&quot;
             </p>
 
             {/* Action buttons */}
             <div className="flex flex-wrap gap-4 mt-2">
-              <a
-                href="#proyectos"
-                className="flex items-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-sm"
-              >
-                Ver proyectos →
+              <a href="#proyectos" className="flex items-center gap-2 bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors text-sm">
+                {t("hero.projects")}
               </a>
-              <a
-                href="/cv.pdf"
-                download
-                className="flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm"
-              >
+              <a href="/cv.pdf" download className="flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-                Descargar CV
+                {t("hero.cv")}
               </a>
             </div>
           </div>

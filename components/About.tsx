@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // About section - Sobre Mí
 
 interface ProfileCard {
@@ -81,48 +83,40 @@ function ProfileIcon({ type }: { type: string }) {
 }
 
 export default function About() {
+  const { t } = useApp();
   return (
     <section id="sobre-mi" className="bg-gray-50 py-20 px-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-12">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Sobre Mí</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("about.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
         </div>
-
-        {/* Bio card */}
         <div className="bg-white rounded-2xl border border-gray-100 p-8 text-center" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
-          <p className="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">
-            Estudiante de Ingeniería de Software con formación en soporte TI,
-            desarrollo web básico y herramientas digitales. Responsable, adaptable
-            y con habilidades en atención al cliente y trabajo en equipo. Dominio del
-            idioma inglés.
-          </p>
+          <p className="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">{t("about.bio")}</p>
         </div>
 
         {/* Profile cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {profileCards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4"
-              style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}
-            >
+          {[
+            { iconType: "person", titleKey: "about.profile", descKey: "about.profile.desc", bg: "bg-blue-500" },
+            { iconType: "eye", titleKey: "about.focus", descKey: "about.focus.desc", bg: "bg-blue-500" },
+            { iconType: "briefcase", titleKey: "about.experience", descKey: "about.experience.desc", bg: "bg-blue-500" },
+            { iconType: "bulb", titleKey: "about.values", descKey: "about.values.desc", bg: "bg-blue-500" },
+          ].map((card) => (
+            <div key={card.titleKey} className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
               <div className={`${card.bg} rounded-xl w-10 h-10 flex items-center justify-center shrink-0`}>
                 <ProfileIcon type={card.iconType} />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 text-sm">{card.title}</h3>
-                <p className="text-gray-500 text-xs mt-1 leading-relaxed">{card.description}</p>
+                <h3 className="font-semibold text-gray-900 text-sm">{t(card.titleKey)}</h3>
+                <p className="text-gray-500 text-xs mt-1 leading-relaxed">{t(card.descKey)}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Skills title */}
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Habilidades</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{t("about.skills")}</h2>
         </div>
 
         {/* Technical skills card */}
@@ -133,7 +127,7 @@ export default function About() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
             </div>
-            <h3 className="font-bold text-gray-900 text-base">Habilidades Técnicas</h3>
+            <h3 className="font-bold text-gray-900 text-base">{t("about.technical")}</h3>
           </div>
           <div className="flex flex-wrap gap-3">
             {technicalSkills.map((skill) => (
@@ -156,7 +150,7 @@ export default function About() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="font-bold text-gray-900 text-base">Habilidades Blandas</h3>
+            <h3 className="font-bold text-gray-900 text-base">{t("about.soft")}</h3>
           </div>
           <div className="flex flex-col gap-4">
             {softSkills.map((skill) => (

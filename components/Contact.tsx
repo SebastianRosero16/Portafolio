@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useApp } from "@/context/AppContext";
 
 // Contact info cards
 const contactInfo = [
   {
-    label: "Correo Electrónico",
+    labelKey: "contact.email",
     value: "sebasorlando28@gmail.com",
     gradient: "from-pink-500 to-red-400",
     icon: (
@@ -15,7 +16,7 @@ const contactInfo = [
     ),
   },
   {
-    label: "Teléfono",
+    labelKey: "contact.phone",
     value: "320 383 1186",
     gradient: "from-green-400 to-green-500",
     icon: (
@@ -25,7 +26,7 @@ const contactInfo = [
     ),
   },
   {
-    label: "Ubicación",
+    labelKey: "contact.location",
     value: "Pasto, Nariño, Colombia",
     gradient: "from-blue-400 to-blue-500",
     icon: (
@@ -39,6 +40,7 @@ const contactInfo = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const { t } = useApp();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -53,22 +55,20 @@ export default function Contact() {
   return (
     <section id="contacto" className="bg-gray-50 py-16 px-6">
       <div className="max-w-2xl mx-auto flex flex-col gap-8">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Contacto</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("contact.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
-          <p className="mt-4 text-gray-500 text-sm">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+          <p className="mt-4 text-gray-500 text-sm">{t("contact.subtitle")}</p>
         </div>
 
         {/* Contact info cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {contactInfo.map((item) => (
-            <div key={item.label} className="bg-white rounded-2xl p-6 flex flex-col items-center gap-3 border border-gray-100" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
+            <div key={item.labelKey} className="bg-white rounded-2xl p-6 flex flex-col items-center gap-3 border border-gray-100" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.12)" }}>
               <div className={`bg-linear-to-br ${item.gradient} w-16 h-16 rounded-2xl flex items-center justify-center`}>
                 {item.icon}
               </div>
-              <p className="text-gray-900 font-bold text-sm text-center">{item.label}</p>
+              <p className="text-gray-900 font-bold text-sm text-center">{t(item.labelKey)}</p>
               <p className="text-gray-500 text-sm text-center">{item.value}</p>
             </div>
           ))}
@@ -81,8 +81,8 @@ export default function Contact() {
             className="p-6"
             style={{ background: "linear-gradient(to right, #3b82f6, #06b6d4)" }}
           >
-            <h3 className="text-white font-bold text-lg">Envíame un mensaje</h3>
-            <p className="text-blue-100 text-sm mt-1">Completa el formulario y me pondré en contacto contigo pronto</p>
+            <h3 className="text-white font-bold text-lg">{t("contact.form.title")}</h3>
+            <p className="text-blue-100 text-sm mt-1">{t("contact.form.subtitle")}</p>
           </div>
 
           {/* Form body */}
@@ -90,53 +90,22 @@ export default function Contact() {
             {/* Name + Email row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label className="text-gray-700 text-xs font-medium">Nombre</label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Tu nombre"
-                  value={form.name}
-                  onChange={handleChange}
-                  className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors"
-                />
+                <label className="text-gray-700 text-xs font-medium">{t("contact.form.name")}</label>
+                <input type="text" name="name" placeholder={t("contact.form.name.placeholder")} value={form.name} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-gray-700 text-xs font-medium">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="tu@email.com"
-                  value={form.email}
-                  onChange={handleChange}
-                  className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors"
-                />
+                <input type="email" name="email" placeholder={t("contact.form.email.placeholder")} value={form.email} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
               </div>
             </div>
 
-            {/* Subject */}
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 text-xs font-medium">Asunto</label>
-              <input
-                type="text"
-                name="subject"
-                placeholder="¿En qué puedo ayudarte?"
-                value={form.subject}
-                onChange={handleChange}
-                className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors"
-              />
+              <label className="text-gray-700 text-xs font-medium">{t("contact.form.subject")}</label>
+              <input type="text" name="subject" placeholder={t("contact.form.subject.placeholder")} value={form.subject} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
             </div>
-
-            {/* Message */}
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 text-xs font-medium">Mensaje</label>
-              <textarea
-                name="message"
-                placeholder="Cuéntame sobre tu proyecto..."
-                value={form.message}
-                onChange={handleChange}
-                rows={4}
-                className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors resize-none"
-              />
+              <label className="text-gray-700 text-xs font-medium">{t("contact.form.message")}</label>
+              <textarea name="message" placeholder={t("contact.form.message.placeholder")} value={form.message} onChange={handleChange} rows={4} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors resize-none" />
             </div>
 
             {/* Submit button */}
@@ -148,14 +117,14 @@ export default function Contact() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
-              Enviar Mensaje
+              {t("contact.form.send")}
             </button>
           </form>
         </div>
 
         {/* Social links */}
         <div className="flex flex-col items-center gap-3">
-          <p className="text-gray-500 text-sm">También puedes encontrarme en:</p>
+          <p className="text-gray-500 text-sm">{t("contact.social")}</p>
           <div className="flex gap-3">
             <a
               href="https://www.linkedin.com/in/sebastian-orlando-manchabajoy-rosero-b1973a3ab/"

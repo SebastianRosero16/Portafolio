@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Professional goals section
 
 const goals = [
@@ -47,15 +49,14 @@ const goals = [
 ];
 
 export default function Goals() {
+  const { t } = useApp();
   return (
     <section id="objetivos" className="bg-white py-16 px-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Objetivos Profesionales</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("goals.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
-          <p className="mt-4 text-gray-500 text-sm">Mi visión y metas para el futuro profesional</p>
+          <p className="mt-4 text-gray-500 text-sm">{t("goals.subtitle")}</p>
         </div>
 
         {/* Goals grid */}
@@ -90,15 +91,10 @@ export default function Goals() {
             boxShadow: "0 12px 40px rgba(0, 0, 0, 0.35)",
           }}
         >
-          <h3 className="text-white font-bold text-xl">¿Trabajamos juntos?</h3>
-          <p className="text-blue-100 text-sm">Estoy siempre abierto a nuevas oportunidades y colaboraciones</p>
-          <a
-            href="https://wa.me/573203831186"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-blue-600 font-semibold text-sm px-8 py-2.5 rounded-xl hover:bg-blue-50 transition-colors"
-          >
-            Contactar
+          <h3 className="text-white font-bold text-xl">{t("goals.cta.title")}</h3>
+          <p className="text-blue-100 text-sm">{t("goals.cta.subtitle")}</p>
+          <a href="https://wa.me/573203831186" target="_blank" rel="noopener noreferrer" className="bg-white text-blue-600 font-semibold text-sm px-8 py-2.5 rounded-xl hover:bg-blue-50 transition-colors">
+            {t("goals.cta.button")}
           </a>
         </div>
 

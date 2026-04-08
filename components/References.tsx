@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Professional references section
 
 const references = [
@@ -41,15 +43,14 @@ function StarIcon() {
 }
 
 export default function References() {
+  const { t } = useApp();
   return (
     <section id="referencias" className="bg-gray-50 py-16 px-6">
       <div className="max-w-5xl mx-auto flex flex-col gap-10">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Referencias Profesionales</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("references.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
-          <p className="mt-4 text-gray-500 text-sm">Lo que dicen quienes han trabajado conmigo</p>
+          <p className="mt-4 text-gray-500 text-sm">{t("references.subtitle")}</p>
         </div>
 
         {/* Reference cards grid */}
@@ -83,7 +84,7 @@ export default function References() {
               {/* Author */}
               <div className="pt-2 border-t border-gray-100">
                 <p className="text-gray-900 font-bold text-sm">{ref.name}</p>
-                <p className="text-gray-400 text-xs">{ref.role}</p>
+                <p className="text-gray-400 text-xs">{t("references.role")}</p>
               </div>
             </div>
           ))}

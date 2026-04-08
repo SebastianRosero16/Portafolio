@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useApp } from "@/context/AppContext";
 
 // Achievement cards data
 const achievements = [
@@ -49,6 +50,7 @@ const achievements = [
 const skills = ["Disciplina", "Trabajo en Equipo", "Liderazgo", "Perseverancia", "Compromiso", "Resiliencia"];
 
 export default function Sports() {
+  const { t } = useApp();
   return (
     <section
       id="deportes"
@@ -59,11 +61,9 @@ export default function Sports() {
 
         {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-white">Disciplina y Logros Deportivos</h2>
+          <h2 className="text-3xl font-bold text-white">{t("sports.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-yellow-400 rounded-full" />
-          <p className="mt-4 text-blue-200 text-sm">
-            El deporte ha sido fundamental en mi formación personal y profesional
-          </p>
+          <p className="mt-4 text-blue-200 text-sm">{t("sports.subtitle")}</p>
         </div>
 
         {/* Achievement cards grid */}
@@ -98,7 +98,7 @@ export default function Sports() {
 
         {/* Skills card */}
         <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-          <h3 className="text-white font-bold text-lg mb-4">Habilidades Desarrolladas</h3>
+          <h3 className="text-white font-bold text-lg mb-4">{t("sports.skills")}</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill) => (
               <span

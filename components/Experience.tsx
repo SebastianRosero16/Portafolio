@@ -1,5 +1,7 @@
 "use client";
 
+import { useApp } from "@/context/AppContext";
+
 // Work Experience section
 
 const experiences = [
@@ -30,13 +32,12 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const { t } = useApp();
   return (
     <section id="experiencia" className="bg-gray-50 py-16 px-6">
       <div className="max-w-4xl mx-auto flex flex-col gap-10">
-
-        {/* Section title */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Experiencia Laboral</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t("experience.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
         </div>
 
@@ -85,7 +86,7 @@ export default function Experience() {
 
                 {/* Achievements */}
                 <div className="bg-white px-6 py-5">
-                  <p className="font-semibold text-gray-900 text-sm mb-3">Logros y Responsabilidades:</p>
+                  <p className="font-semibold text-gray-900 text-sm mb-3">{t("experience.achievements")}</p>
                   <ul className="flex flex-col gap-2">
                     {exp.achievements.map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
