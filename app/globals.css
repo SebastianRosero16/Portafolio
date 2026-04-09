@@ -22,8 +22,16 @@ html.dark .bg-gray-50 {
   background-color: #0f172a !important;
 }
 
+html.dark .bg-white\/5 {
+  background-color: rgba(255,255,255,0.05) !important;
+}
+
 html.dark .text-gray-900 {
   color: #f1f5f9 !important;
+}
+
+html.dark .text-gray-800 {
+  color: #e2e8f0 !important;
 }
 
 html.dark .text-gray-700 {
@@ -35,11 +43,11 @@ html.dark .text-gray-600 {
 }
 
 html.dark .text-gray-500 {
-  color: #64748b !important;
+  color: #94a3b8 !important;
 }
 
 html.dark .text-gray-400 {
-  color: #475569 !important;
+  color: #64748b !important;
 }
 
 html.dark .border-gray-100 {
@@ -58,7 +66,35 @@ html.dark .bg-purple-50 {
   background-color: #2d1b69 !important;
 }
 
+html.dark .bg-gray-200 {
+  background-color: #334155 !important;
+}
+
+html.dark .border-blue-100 {
+  border-color: #1e40af !important;
+}
+
+html.dark .border-purple-100 {
+  border-color: #6b21a8 !important;
+}
+
+html.dark .text-blue-600 {
+  color: #60a5fa !important;
+}
+
+html.dark .text-blue-700 {
+  color: #93c5fd !important;
+}
+
+html.dark .text-blue-500 {
+  color: #60a5fa !important;
+}
+
+html.dark .bg-gray-900 {
+  background-color: #020617 !important;
+}
+
 html.dark .shadow-md,
 html.dark .shadow-sm {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
 }
