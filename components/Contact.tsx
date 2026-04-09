@@ -40,14 +40,51 @@ const contactInfo = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [errors, setErrors] = useState({ name: "", email: "", subject: "", message: "" });
   const { t } = useApp();
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validate = (field: string, value: string): string => {
+    const trimmed = value.trim();
+    if (field === "name") {
+      if (!trimmed) return "El nombre es requerido";
+      if (trimmed.length < 2) return "Mínimo 2 caracteres";
+      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmed)) return "Solo se permiten letras";
+    }
+    if (field === "email") {
+      if (!trimmed) return "El correo es requerido";
+      if (!emailRegex.test(trimmed)) return "Ingresa un correo válido";
+    }
+    if (field === "subject") {
+      if (!trimmed) return "El asunto es requerido";
+      if (trimmed.length < 3) return "Mínimo 3 caracteres";
+    }
+    if (field === "message") {
+      if (!trimmed) return "El mensaje es requerido";
+      if (trimmed.length < 10) return "Mínimo 10 caracteres";
+    }
+    return "";
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // Prevent leading spaces
+    if (value.startsWith(" ")) return;
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: validate(name, value) });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newErrors = {
+      name: validate("name", form.name),
+      email: validate("email", form.email),
+      subject: validate("subject", form.subject),
+      message: validate("message", form.message),
+    };
+    setErrors(newErrors);
+    if (Object.values(newErrors).some((err) => err)) return;
     const mailto = `mailto:sebasorlando28@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Nombre: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
     window.location.href = mailto;
   };
@@ -91,21 +128,41 @@ export default function Contact() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
                 <label className="text-gray-700 text-xs font-medium">{t("contact.form.name")}</label>
-                <input type="text" name="name" placeholder={t("contact.form.name.placeholder")} value={form.name} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
+                <input
+                  type="text" name="name" placeholder={t("contact.form.name.placeholder")}
+                  value={form.name} onChange={handleChange}
+                  className={`border rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none transition-colors ${errors.name ? "border-red-400 focus:border-red-400" : "border-gray-200 focus:border-blue-400"}`}
+                />
+                {errors.name && <span className="text-red-500 text-xs">{errors.name}</span>}
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-gray-700 text-xs font-medium">Email</label>
-                <input type="email" name="email" placeholder={t("contact.form.email.placeholder")} value={form.email} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
+                <input
+                  type="text" name="email" placeholder={t("contact.form.email.placeholder")}
+                  value={form.email} onChange={handleChange}
+                  className={`border rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none transition-colors ${errors.email ? "border-red-400 focus:border-red-400" : "border-gray-200 focus:border-blue-400"}`}
+                />
+                {errors.email && <span className="text-red-500 text-xs">{errors.email}</span>}
               </div>
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="text-gray-700 text-xs font-medium">{t("contact.form.subject")}</label>
-              <input type="text" name="subject" placeholder={t("contact.form.subject.placeholder")} value={form.subject} onChange={handleChange} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors" />
+              <input
+                type="text" name="subject" placeholder={t("contact.form.subject.placeholder")}
+                value={form.subject} onChange={handleChange}
+                className={`border rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none transition-colors ${errors.subject ? "border-red-400 focus:border-red-400" : "border-gray-200 focus:border-blue-400"}`}
+              />
+              {errors.subject && <span className="text-red-500 text-xs">{errors.subject}</span>}
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-gray-700 text-xs font-medium">{t("contact.form.message")}</label>
-              <textarea name="message" placeholder={t("contact.form.message.placeholder")} value={form.message} onChange={handleChange} rows={4} className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none focus:border-blue-400 transition-colors resize-none" />
+              <textarea
+                name="message" placeholder={t("contact.form.message.placeholder")}
+                value={form.message} onChange={handleChange} rows={4}
+                className={`border rounded-xl px-4 py-2.5 text-sm text-gray-700 outline-none transition-colors resize-none ${errors.message ? "border-red-400 focus:border-red-400" : "border-gray-200 focus:border-blue-400"}`}
+              />
+              {errors.message && <span className="text-red-500 text-xs">{errors.message}</span>}
             </div>
 
             {/* Submit button */}
