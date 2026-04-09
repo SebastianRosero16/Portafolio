@@ -27,11 +27,11 @@ export default function Experience() {
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
         </div>
 
-        {/* Timeline */}
-        <div className="relative flex flex-col gap-8 pl-8">
-
-          {/* Vertical line */}
-          <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-blue-600" />
+        {/* Work experience timeline */}
+        <div className="flex flex-col gap-6">
+          <h3 className="text-2xl font-bold text-gray-900">{t("experience.title")}</h3>
+          <div className="relative flex flex-col gap-8 pl-8">
+            <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-blue-600" />
 
           {experiences.map((exp, index) => (
             <div key={index} className="relative flex flex-col gap-0">
@@ -70,6 +70,53 @@ export default function Experience() {
               </div>
             </div>
           ))}
+        </div>
+        </div>
+
+        {/* Academic experience */}
+        <div className="flex flex-col gap-6">
+          <h3 className="text-2xl font-bold text-gray-900">{t("exp.academic.title")}</h3>
+
+          {/* Degree + Tech cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.10)" }}>
+              <div className="bg-blue-500 rounded-xl w-10 h-10 flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m-3-3h6" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">{t("exp.academic.degree")}</p>
+                <p className="text-gray-500 text-xs mt-1">{t("exp.academic.degree.sub")}</p>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.10)" }}>
+              <div className="bg-green-500 rounded-xl w-10 h-10 flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">{t("exp.academic.tech")}</p>
+                <p className="text-gray-500 text-xs mt-1">{t("exp.academic.tech.sub")}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-6" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.10)" }}>
+            <p className="font-bold text-gray-900 text-sm mb-4">{t("exp.certifications")}</p>
+            <ul className="flex flex-col gap-2">
+              {["exp.cert.1","exp.cert.2","exp.cert.3","exp.cert.4","exp.cert.5","exp.cert.6","exp.cert.7"].map((key) => (
+                <li key={key} className="flex items-start gap-2 text-sm text-gray-600">
+                  <svg className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {t(key)}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
       </div>
