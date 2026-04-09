@@ -22,7 +22,7 @@ export default function References() {
   const { t } = useApp();
   return (
     <section id="referencias" className="bg-gray-50 py-16 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+      <div className="max-w-4xl mx-auto flex flex-col gap-10">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">{t("references.title")}</h2>
           <div className="mt-2 mx-auto w-12 h-1 bg-blue-600 rounded-full" />
@@ -30,7 +30,7 @@ export default function References() {
         </div>
 
         {/* Reference cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto w-full">
           {referencesData.map((ref) => (
             <div
               key={ref.name}

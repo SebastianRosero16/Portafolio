@@ -23,7 +23,7 @@ export default function Goals() {
         </div>
 
         {/* Goals grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto w-full">
           {goalsData.map((goal) => (
             <div
               key={goal.titleKey}
@@ -47,7 +47,7 @@ export default function Goals() {
 
         {/* CTA banner */}
         <div
-          className="rounded-2xl p-8 text-center flex flex-col items-center gap-3 max-w-xl mx-auto w-full"
+          className="rounded-2xl p-8 text-center flex flex-col items-center gap-3 max-w-4xl mx-auto w-full"
           style={{
             background: "linear-gradient(to right, #3b82f6, #06b6d4)",
             boxShadow: "0 12px 40px rgba(0, 0, 0, 0.35)",
