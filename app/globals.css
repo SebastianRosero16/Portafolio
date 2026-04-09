@@ -47,7 +47,7 @@ html.dark .text-gray-500 {
 }
 
 html.dark .text-gray-400 {
-  color: #64748b !important;
+  color: #94a3b8 !important;
 }
 
 html.dark .border-gray-100 {
@@ -97,4 +97,18 @@ html.dark .bg-gray-900 {
 html.dark .shadow-md,
 html.dark .shadow-sm {
   box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+}
+
+/* Ensure subtitle text is visible in dark mode */
+html.dark p.text-gray-400,
+html.dark span.text-gray-400 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-gray-500 {
+  color: #94a3b8 !important;
 }
