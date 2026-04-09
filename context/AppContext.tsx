@@ -23,7 +23,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",
     "nav.sports": "Deportes",
-    "nav.references": "Referencias",
+    "nav.references": "Testimonios",
     "nav.goals": "Objetivos",
     "nav.contact": "Contacto",
     // Hero
@@ -66,7 +66,7 @@ const translations: Record<Language, Record<string, string>> = {
     "sports.subtitle": "El deporte ha sido fundamental en mi formación personal y profesional",
     "sports.skills": "Habilidades Desarrolladas",
     // References
-    "references.title": "Referencias Profesionales",
+    "references.title": "Testimonios",
     "references.subtitle": "Lo que dicen quienes han trabajado conmigo",
     "references.role": "Referencia Profesional",
     // Goals
@@ -212,7 +212,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.sports": "Sports",
-    "nav.references": "References",
+    "nav.references": "Testimonials",
     "nav.goals": "Goals",
     "nav.contact": "Contact",
     // Hero
@@ -255,7 +255,7 @@ const translations: Record<Language, Record<string, string>> = {
     "sports.subtitle": "Sports has been fundamental in my personal and professional development",
     "sports.skills": "Developed Skills",
     // References
-    "references.title": "Professional References",
+    "references.title": "Testimonials",
     "references.subtitle": "What those who have worked with me say",
     "references.role": "Professional Reference",
     // Goals
