@@ -7,7 +7,7 @@ import { useApp } from "@/context/AppContext";
 const contactInfo = [
   {
     labelKey: "contact.email",
-    value: "sebasorlando28@gmail.com",
+    value: "sebastian.manchabajo@campusucc.edu.co",
     gradient: "from-pink-500 to-red-400",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +85,7 @@ export default function Contact() {
     };
     setErrors(newErrors);
     if (Object.values(newErrors).some((err) => err)) return;
-    const mailto = `mailto:sebasorlando28@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Nombre: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
+    const mailto = `mailto:sebastian.manchabajo@campusucc.edu.co?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Nombre: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
     window.location.href = mailto;
   };
 
