@@ -57,23 +57,35 @@ export default function Hero() {
 
           {/* Right: profile photo + social links */}
           <div className="flex flex-col items-center gap-4 shrink-0">
-            <div className="w-64 sm:w-80 rounded-2xl overflow-hidden bg-white/5 relative" style={{ border: "3px solid #38bdf8", boxShadow: "0 0 30px rgba(56,189,248,0.5), 0 20px 40px rgba(0,0,0,0.4)" }}>
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72">
+              {/* Gradient ring */}
               <div
-                className="absolute inset-0 opacity-10 pointer-events-none"
+                className="absolute inset-0 rounded-full"
                 style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,100,100,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,100,100,0.5) 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
+                  background: "linear-gradient(135deg, #38bdf8, #818cf8, #f472b6, #38bdf8)",
+                  padding: "4px",
+                  backgroundSize: "300% 300%",
+                  animation: "spin 6s linear infinite",
                 }}
+              >
+                <div className="w-full h-full rounded-full bg-[#0d2060]" />
+              </div>
+              {/* Glow */}
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{ boxShadow: "0 0 40px rgba(56,189,248,0.4), 0 0 80px rgba(129,140,248,0.2)" }}
               />
-              <Image
-                src="/profile.jpg"
-                alt="Sebastián Manchabajoy"
-                width={400}
-                height={500}
-                className="w-full object-cover object-top"
-                priority
-              />
+              {/* Photo */}
+              <div className="absolute inset-[4px] rounded-full overflow-hidden">
+                <Image
+                  src="/profile.jpg"
+                  alt="Sebastián Manchabajoy"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
+              </div>
             </div>
 
             {/* Social links below photo */}
