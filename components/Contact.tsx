@@ -106,7 +106,17 @@ export default function Contact() {
                 {item.icon}
               </div>
               <p className="text-gray-900 font-bold text-sm text-center">{t(item.labelKey)}</p>
-              <p className="text-gray-500 text-sm text-center">{item.value}</p>
+              {item.labelKey === "contact.email" ? (
+                <a
+                  href={`mailto:${item.value}`}
+                  title={item.value}
+                  className="text-blue-500 text-sm text-center truncate max-w-full hover:underline"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="text-gray-500 text-sm text-center">{item.value}</p>
+              )}
             </div>
           ))}
         </div>
