@@ -30,7 +30,7 @@ export default function Experience() {
         {/* Work experience timeline */}
         <div className="flex flex-col gap-6">
           <h3 className="text-2xl font-bold text-gray-900">{t("experience.title")}</h3>
-          <div className="relative flex flex-col gap-8 pl-8">
+          <div className="relative flex flex-col gap-8 pl-6 overflow-hidden">
             <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-blue-600" />
 
           {experiences.map((exp, index) => (
