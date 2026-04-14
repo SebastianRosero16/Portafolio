@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="bg-gradient-to-b from-[#0a1628] via-[#0d2060] to-[#1a3a8f] flex flex-col items-center justify-center pt-28 pb-12 px-6"
+      className="bg-gradient-to-b from-[#0a1628] via-[#0d2060] to-[#1a3a8f] flex flex-col items-center justify-center pt-28 pb-12 px-6 overflow-hidden"
     >
       <div className="max-w-5xl w-full flex flex-col gap-5">
 
@@ -73,7 +73,7 @@ export default function Hero() {
               {/* Glow */}
               <div
                 className="absolute inset-0 rounded-full"
-                style={{ boxShadow: "0 0 40px rgba(56,189,248,0.4), 0 0 80px rgba(129,140,248,0.2)" }}
+                style={{ boxShadow: "0 0 25px rgba(56,189,248,0.35)" }}
               />
               {/* Photo */}
               <div className="absolute inset-[4px] rounded-full overflow-hidden">
