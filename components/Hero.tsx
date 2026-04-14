@@ -57,7 +57,7 @@ export default function Hero() {
 
           {/* Right: profile photo + social links */}
           <div className="flex flex-col items-center gap-4 shrink-0">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72">
+            <div className="relative w-48 h-48 sm:w-72 sm:h-72">
               {/* Gradient ring */}
               <div
                 className="absolute inset-0 rounded-full"
