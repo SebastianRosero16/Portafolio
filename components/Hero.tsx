@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center gap-8">
 
           {/* Left: text content */}
-          <div className="flex flex-col gap-4 flex-1">
+          <div className="flex flex-col gap-4 flex-1 order-2 sm:order-1">
             <div>
               <h1 className="text-white font-bold text-4xl sm:text-5xl leading-tight">
                 Sebastián Orlando
@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
 
           {/* Right: profile photo + social links */}
-          <div className="flex flex-col items-center gap-4 shrink-0">
+          <div className="flex flex-col items-center gap-4 shrink-0 order-1 sm:order-2">
             <div className="relative w-48 h-48 sm:w-72 sm:h-72">
               {/* Gradient ring */}
               <div
