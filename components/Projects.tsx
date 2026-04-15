@@ -5,12 +5,12 @@ import { useApp } from "@/context/AppContext";
 // Projects section
 
 const projects = [
-  { titleKey: "proj.agro.title", descKey: "proj.agro.desc", technologies: ["JavaScript", "IA", "API Integration", "Web Development"], githubUrl: "https://github.com/SebastianRosero16/AgriGoSJ-Frontend", gradient: "from-blue-600 to-blue-400" },
-  { titleKey: "proj.linkedin.title", descKey: "proj.linkedin.desc", technologies: ["JavaScript", "HTML", "CSS", "Database", "API"], githubUrl: "https://github.com/SebastianRosero16/Red-Social.git", gradient: "from-blue-500 to-cyan-400" },
-  { titleKey: "proj.mp3.title", descKey: "proj.mp3.desc", technologies: ["JavaScript", "HTML5 Audio", "CSS", "File Management"], githubUrl: "https://github.com/SebastianRosero16/Reproductor-de-Musica.git", gradient: "from-blue-600 to-blue-400" },
-  { titleKey: "proj.alarm.title", descKey: "proj.alarm.desc", technologies: ["JavaScript", "Time API", "HTML", "CSS"], githubUrl: "https://github.com/SebastianRosero16/Reloj-Alarma.git", gradient: "from-blue-500 to-cyan-400" },
-  { titleKey: "proj.ui.title", descKey: "proj.ui.desc", technologies: ["UI/UX", "CSS3", "HTML5", "Responsive Design"], githubUrl: "https://github.com/SebastianRosero16/Dashboard.git", gradient: "from-blue-600 to-blue-400" },
-  { titleKey: "proj.dashboard.title", descKey: "proj.dashboard.desc", technologies: ["Python", "JavaScript", "Web Development", "Database"], githubUrl: "https://github.com/StevenInsuasti/TalleGit.git", gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.agro.title", descKey: "proj.agro.desc", technologies: ["JavaScript", "IA", "API Integration", "Web Development"], githubUrl: "https://github.com/SebastianRosero16/AgriGoSJ-Frontend", demoUrl: "https://agrigo-lilac.vercel.app/", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.linkedin.title", descKey: "proj.linkedin.desc", technologies: ["JavaScript", "HTML", "CSS", "Database", "API"], githubUrl: "https://github.com/SebastianRosero16/Red-Social.git", demoUrl: "https://red-social-yo-jobs.vercel.app/users/register/", gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.mp3.title", descKey: "proj.mp3.desc", technologies: ["JavaScript", "HTML5 Audio", "CSS", "File Management"], githubUrl: "https://github.com/SebastianRosero16/Reproductor-de-Musica.git", demoUrl: "https://music-on-six.vercel.app/", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.alarm.title", descKey: "proj.alarm.desc", technologies: ["JavaScript", "Time API", "HTML", "CSS"], githubUrl: "https://github.com/SebastianRosero16/Reloj-Alarma.git", demoUrl: "https://relojalarma.vercel.app/", gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.ui.title", descKey: "proj.ui.desc", technologies: ["UI/UX", "CSS3", "HTML5", "Responsive Design"], githubUrl: "https://github.com/SebastianRosero16/Dashboard.git", demoUrl: "https://dashboard-orcin-pi-34.vercel.app/", gradient: "from-blue-600 to-blue-400" },
+  { titleKey: "proj.dashboard.title", descKey: "proj.dashboard.desc", technologies: ["Python", "JavaScript", "Web Development", "Database"], githubUrl: "https://github.com/StevenInsuasti/TalleGit.git", demoUrl: null, gradient: "from-blue-500 to-cyan-400" },
 ];
 
 function CodeIcon() {
@@ -64,6 +64,15 @@ export default function Projects() {
                   <GithubIcon />
                   {t("projects.code")}
                 </a>
+                {project.demoUrl && (
+                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-sm font-medium py-2.5 px-4 rounded-xl transition-colors border border-blue-500 text-blue-600 hover:bg-blue-50">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Ver Demo
+                  </a>
+                )}
               </div>
             </div>
           ))}
