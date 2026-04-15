@@ -100,7 +100,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About skills
     "about.skills.it": "Soporte TI",
     "about.skills.web": "Desarrollo Web",
-    "about.skills.ai": "Herramientas de IA",
+    "about.skills.ai": "Manejo de IA",
     "about.soft.communication": "Comunicación",
     "about.soft.teamwork": "Trabajo en Equipo",
     "about.soft.responsibility": "Responsabilidad",
@@ -289,7 +289,7 @@ const translations: Record<Language, Record<string, string>> = {
     // About skills
     "about.skills.it": "IT Support",
     "about.skills.web": "Web Development",
-    "about.skills.ai": "AI Tools",
+    "about.skills.ai": "AI Management",
     "about.soft.communication": "Communication",
     "about.soft.teamwork": "Teamwork",
     "about.soft.responsibility": "Responsibility",
