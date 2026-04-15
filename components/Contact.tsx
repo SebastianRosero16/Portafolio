@@ -41,6 +41,7 @@ const contactInfo = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const { t } = useApp();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -69,13 +70,12 @@ export default function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    // Prevent leading spaces
     if (value.startsWith(" ")) return;
     setForm({ ...form, [name]: value });
     setErrors({ ...errors, [name]: validate(name, value) });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = {
       name: validate("name", form.name),
@@ -85,8 +85,28 @@ export default function Contact() {
     };
     setErrors(newErrors);
     if (Object.values(newErrors).some((err) => err)) return;
-    const mailto = `mailto:sebasorlando28@gmail.com?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`Nombre: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
-    window.location.href = mailto;
+
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/xlgadklq", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -178,14 +198,21 @@ export default function Contact() {
             {/* Submit button */}
             <button
               type="submit"
-              className="flex items-center gap-2 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-opacity hover:opacity-90 w-fit"
+              disabled={status === "sending"}
+              className="flex items-center gap-2 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-opacity hover:opacity-90 w-fit disabled:opacity-60"
               style={{ background: "linear-gradient(to right, #3b82f6, #06b6d4)" }}
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
-              {t("contact.form.send")}
+              {status === "sending" ? "Enviando..." : t("contact.form.send")}
             </button>
+            {status === "success" && (
+              <p className="text-green-600 text-sm font-medium">¡Mensaje enviado correctamente!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-500 text-sm font-medium">Hubo un error al enviar. Intenta de nuevo.</p>
+            )}
           </form>
         </div>
 
