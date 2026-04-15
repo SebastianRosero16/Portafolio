@@ -191,7 +191,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ref.eddy.q2": "Además de sus habilidades técnicas, su capacidad de trabajo en equipo y comunicación son excepcionales.",
     "ref.eddy.q3": "Su atención al detalle y creatividad en el diseño de interfaces es sobresaliente.",
     // Goals
-    "goal.1.title": "Crecer como Desarrollador Web",
+    "goal.1.title": "Crecer como Desarrollador FullStack",
     "goal.1.timeframe": "Corto-Mediano Plazo",
     "goal.1.desc": "Convertirme en un desarrollador full-stack competente, dominando tanto frontend como backend",
     "goal.2.title": "Mejorar Nivel de Inglés",
@@ -380,7 +380,7 @@ const translations: Record<Language, Record<string, string>> = {
     "ref.eddy.q2": "In addition to his technical skills, his teamwork and communication skills are exceptional.",
     "ref.eddy.q3": "His attention to detail and creativity in interface design is outstanding.",
     // Goals
-    "goal.1.title": "Grow as a Web Developer",
+    "goal.1.title": "Grow as a FullStack Developer",
     "goal.1.timeframe": "Short-Medium Term",
     "goal.1.desc": "Become a competent full-stack developer, mastering both frontend and backend",
     "goal.2.title": "Improve English Level",
