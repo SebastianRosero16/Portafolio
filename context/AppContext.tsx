@@ -163,8 +163,8 @@ const translations: Record<Language, Record<string, string>> = {
     "proj.alarm.desc": "Sistema de alarma con soporte para diferentes zonas horarias internacionales, permitiendo programar recordatorios en horarios de múltiples países.",
     "proj.ui.title": "Diseño de Interfaces Intuitivas",
     "proj.ui.desc": "Colección de interfaces de usuario modernas y accesibles, enfocadas en experiencia del usuario y diseño responsivo.",
-    "proj.dashboard.title": "Soporte TI Dashboard",
-    "proj.dashboard.desc": "Panel de control para gestión de tickets de soporte técnico con seguimiento en tiempo real y sistema de prioridades.",
+    "proj.dashboard.title": "Clon MercadoLibre",
+    "proj.dashboard.desc": "Proyecto académico que replica la interfaz y funcionalidades básicas de MercadoLibre, desarrollado como parte del quinto semestre de Ingeniería de Software.",
     // Sports
     "sports.champion.title": "Campeón Departamental",
     "sports.champion.desc": "Ganador del torneo departamental en Pereira",
@@ -352,8 +352,8 @@ const translations: Record<Language, Record<string, string>> = {
     "proj.alarm.desc": "Alarm system with support for different international time zones, allowing reminders to be scheduled in multiple countries' schedules.",
     "proj.ui.title": "Intuitive Interface Design",
     "proj.ui.desc": "Collection of modern and accessible user interfaces, focused on user experience and responsive design.",
-    "proj.dashboard.title": "IT Support Dashboard",
-    "proj.dashboard.desc": "Control panel for managing technical support tickets with real-time tracking and priority system.",
+    "proj.dashboard.title": "MercadoLibre Clone",
+    "proj.dashboard.desc": "Academic project replicating the interface and basic functionalities of MercadoLibre, developed as part of the fifth semester of Software Engineering.",
     // Sports
     "sports.champion.title": "Departmental Champion",
     "sports.champion.desc": "Winner of the departmental tournament in Pereira",

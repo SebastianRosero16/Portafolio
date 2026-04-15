@@ -10,7 +10,7 @@ const projects = [
   { titleKey: "proj.mp3.title", descKey: "proj.mp3.desc", technologies: ["JavaScript", "HTML5 Audio", "CSS", "File Management"], githubUrl: "https://github.com/SebastianRosero16/Reproductor-de-Musica.git", demoUrl: "https://music-on-six.vercel.app/", gradient: "from-blue-600 to-blue-400" },
   { titleKey: "proj.alarm.title", descKey: "proj.alarm.desc", technologies: ["JavaScript", "Time API", "HTML", "CSS"], githubUrl: "https://github.com/SebastianRosero16/Reloj-Alarma.git", demoUrl: "https://relojalarma.vercel.app/", gradient: "from-blue-500 to-cyan-400" },
   { titleKey: "proj.ui.title", descKey: "proj.ui.desc", technologies: ["UI/UX", "CSS3", "HTML5", "Responsive Design"], githubUrl: "https://github.com/SebastianRosero16/Dashboard.git", demoUrl: "https://dashboard-orcin-pi-34.vercel.app/", gradient: "from-blue-600 to-blue-400" },
-  { titleKey: "proj.dashboard.title", descKey: "proj.dashboard.desc", technologies: ["Python", "JavaScript", "Web Development", "Database"], githubUrl: "https://github.com/StevenInsuasti/TalleGit.git", demoUrl: null, gradient: "from-blue-500 to-cyan-400" },
+  { titleKey: "proj.dashboard.title", descKey: "proj.dashboard.desc", technologies: ["Python", "JavaScript", "Web Development", "Database"], githubUrl: "https://github.com/StevenInsuasti/TalleGit.git", demoUrl: "https://steveninsuasti.github.io/TalleGit/", gradient: "from-blue-500 to-cyan-400" },
 ];
 
 function CodeIcon() {
